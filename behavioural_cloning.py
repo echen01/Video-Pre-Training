@@ -14,7 +14,7 @@ from argparse import ArgumentParser
 import pickle
 import time
 
-import gym
+import gymnasium as gym
 import minerl
 import torch as th
 import numpy as np

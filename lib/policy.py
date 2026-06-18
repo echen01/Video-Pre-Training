@@ -4,10 +4,10 @@ from typing import Dict, Optional
 
 import numpy as np
 import torch as th
-from gym3.types import DictType
 from torch import nn
 from torch.nn import functional as F
 
+from lib.gym3_types import DictType
 from lib.action_head import make_action_head
 from lib.action_mapping import CameraHierarchicalMapping
 from lib.impala_cnn import ImpalaCNN

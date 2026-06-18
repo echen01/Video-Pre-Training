@@ -33,7 +33,7 @@ def contextmanager_to_decorator(cm):
 
 
 def have_cuda():
-    return th.has_cuda
+    return th.cuda.is_available()
 
 
 def default_device_type():

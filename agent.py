@@ -1,11 +1,12 @@
 import numpy as np
 import torch as th
 import cv2
-from gym3.types import DictType
-from gym import spaces
+from gymnasium import spaces
 
 from lib.action_mapping import CameraHierarchicalMapping
 from lib.actions import ActionTransformer
+from lib.checkpoint import load_state_dict
+from lib.gym3_types import DictType
 from lib.policy import MinecraftAgentPolicy
 from lib.torch_util import default_device_type, set_default_torch_device
 
@@ -131,7 +132,7 @@ class MineRLAgent:
 
     def load_weights(self, path):
         """Load model weights from a path, and reset hidden state"""
-        self.policy.load_state_dict(th.load(path, map_location=self.device), strict=False)
+        self.policy.load_state_dict(load_state_dict(path, map_location=self.device), strict=False)
         self.reset()
 
     def reset(self):

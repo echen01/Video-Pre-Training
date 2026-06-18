@@ -6,7 +6,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.nn.init as init
-from gym3.types import DictType, Discrete, Real, TensorType, ValType
+
+from lib.gym3_types import DictType, Discrete, Real, TensorType, ValType
 
 LOG0 = -100
 

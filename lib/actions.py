@@ -1,4 +1,5 @@
-import attr
+from dataclasses import dataclass
+
 import minerl.herobraine.hero.mc as mc
 import numpy as np
 
@@ -45,7 +46,7 @@ class QuantizationScheme:
     MU_LAW = "mu_law"
 
 
-@attr.s(auto_attribs=True)
+@dataclass
 class CameraQuantizer:
     """
     A camera quantizer that discretizes and undiscretizes a continuous camera input with y (pitch) and x (yaw) components.
@@ -73,11 +74,13 @@ class CameraQuantizer:
 
     camera_maxval: int
     camera_binsize: int
-    quantization_scheme: str = attr.ib(
-        default=QuantizationScheme.LINEAR,
-        validator=attr.validators.in_([QuantizationScheme.LINEAR, QuantizationScheme.MU_LAW]),
-    )
-    mu: float = attr.ib(default=5)
+    quantization_scheme: str = QuantizationScheme.LINEAR
+    mu: float = 5
+
+    def __post_init__(self):
+        valid_schemes = {QuantizationScheme.LINEAR, QuantizationScheme.MU_LAW}
+        if self.quantization_scheme not in valid_schemes:
+            raise ValueError(f"Unsupported camera quantization scheme: {self.quantization_scheme}")
 
     def discretize(self, xy):
         xy = np.clip(xy, -self.camera_maxval, self.camera_maxval)

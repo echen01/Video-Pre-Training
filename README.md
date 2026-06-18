@@ -16,11 +16,12 @@ Install pre-requirements for [MineRL](https://minerl.readthedocs.io/en/latest/tu
 Then install requirements with:
 
 ```
-pip install git+https://github.com/minerllabs/minerl
-pip install -r requirements.txt
+uv sync
 ```
 
-> ⚠️ Note: For reproducibility reasons, the PyTorch version is pinned as `torch==1.9.0`, which is incompatible with Python 3.10 or higher versions. If you are using Python 3.10 or higher, install a [newer version of PyTorch](https://pytorch.org/get-started/locally/) (usually, `pip install torch`). However, note that this *might* subtly change model behaviour (e.g., still act mostly as expected, but not reaching the reported performance).
+This fork expects Python 3.12+, Gymnasium, a Gymnasium-compatible MineRL fork at
+`../minerl`, and a current PyTorch build. It has been smoke-tested with
+PyTorch 2.12.1.
 
 To run the code, call
 
@@ -83,7 +84,7 @@ on how they were trained and the exact reward schedule.
 IDM aims to predict what actions player is taking in a video recording.
 
 Setup:
-* Install requirements: `pip install -r requirements.txt`
+* Install requirements: `uv sync`
 * Download the IDM model [.model :arrow_down:](https://openaipublic.blob.core.windows.net/minecraft-rl/idm/4x_idm.model) and [.weight :arrow_down:](https://openaipublic.blob.core.windows.net/minecraft-rl/idm/4x_idm.weights) files
 * For demonstration purposes, you can use the contractor recordings shared below to. For this demo we use
   [this .mp4](https://openaipublic.blob.core.windows.net/minecraft-rl/data/10.0/cheeky-cornflower-setter-02e496ce4abb-20220421-092639.mp4)
@@ -103,7 +104,7 @@ Note that `run_inverse_dynamics_model.py` is designed to be a demo of the IDM, n
 **Disclaimer:** This code is a rough demonstration only and not an exact recreation of what original VPT paper did (but it contains some preprocessing steps you want to be aware of)! As such, do not expect replicate the original experiments with this code. This code has been designed to be run-able on consumer hardware (e.g., 8GB of VRAM).
 
 Setup:
-* Install requirements: `pip install -r requirements.txt`
+* Install requirements: `uv sync`
 * Download `.weights` and `.model` file for model you want to fine-tune.
 * Download contractor data (below) and place the `.mp4` and `.jsonl` files to the same directory (e.g., `data`). With default settings, you need at least 12 recordings.
 

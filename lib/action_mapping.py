@@ -4,7 +4,8 @@ from collections import OrderedDict
 from typing import Dict, List
 
 import numpy as np
-from gym3.types import DictType, Discrete, TensorType
+
+from lib.gym3_types import DictType, Discrete, TensorType
 
 from lib.actions import Buttons
 
@@ -101,6 +102,7 @@ class ActionMapping(abc.ABC):
 
 class IDMActionMapping(ActionMapping):
     """For IDM, but essentially this is just an identity mapping"""
+
     def from_factored(self, ac: Dict) -> Dict:
         return ac
 
@@ -232,4 +234,3 @@ class CameraHierarchicalMapping(ActionMapping):
 
     def get_zero_action(self):
         return self._null_action
-
