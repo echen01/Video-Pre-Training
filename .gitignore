@@ -224,3 +224,4 @@ checkpoints/
 
 *.sif
 outputs/
+debug_shards

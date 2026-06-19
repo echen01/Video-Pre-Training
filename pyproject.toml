@@ -6,9 +6,11 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "gymnasium>=1.0",
+    "lancedb>=0.33.0",
     "minerl",
     "numpy>=1.26",
     "opencv-python>=4.9",
+    "pandas>=3.0.3",
     "torch>=2.6",
 ]
 

@@ -19,3 +19,6 @@ minerl/minerl/MCP-Reborn
 minerl/minerl/**/.gradle
 minerl/minerl/**/build
 minerl/minerl/**/run
+checkpoints
+debug_shards
+*.sif
