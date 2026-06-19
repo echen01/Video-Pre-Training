@@ -31,6 +31,11 @@ python run_agent.py --model [path to .model file] --weights [path to .weight fil
 
 After loading up, you should see a window of the agent playing Minecraft.
 
+For headless Slurm collection jobs, use the Docker/Apptainer workflow in
+[`docs/slurm_container.md`](docs/slurm_container.md). The cluster entrypoint can
+run MineRL through VirtualGL/EGL on GPU nodes, with Xvfb as a fallback, and
+`collect_policy.py` records policy rollouts without calling `env.render()`.
+
 
 
 # Agent Model Zoo
